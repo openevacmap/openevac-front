@@ -1,7 +1,9 @@
 <div class="container-fluid">
     <p>Ajouter un plan d'évacuation</p>
 
-    <form ng-submit="addMap(map)" enctype="multipart/form-data">
+    <form action="{{ actionUrl }}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" ng-value="lat" name="lat">
+        <input type="hidden" ng-value="lon" name="lon">
         <div class="form-group">
             <div class="form-group">
                 <label for="building">Bâtiment</label>
@@ -14,9 +16,7 @@
             </div>
             <div class="form-group">
                 <label for="image" for="level">Téléchargez votre photo</label>
-                <input id="image" type="file" ngf-select ng-model="map.image" name="file"
-                       accept="image/*" ngf-max-size="4MB" required
-                       ngf-model-invalid="errorFiles">
+                <input type="file" name="image" id="image" required>
             </div>
             <i ng-show="myForm.file.$error.required">*required</i><br>
             <i ng-show="myForm.file.$error.maxSize">File too large
