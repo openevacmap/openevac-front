@@ -1,37 +1,39 @@
-<div    >
-    <img src="img/ajax-loader.gif" class="img-responsive center-block" ng-show="loading" style="margin-top: 20px">
+<img src="img/ajax-loader.gif" class="img-responsive center-block" ng-show="loading" style="margin-top: 20px">
 
-    <div class="list-group panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default" ng-repeat="address in addresses track by $index" style="margin-top:-1px;">
-            <div class="panel-heading" role="tab" id="headingOne-{{ $index }}" role="button" data-toggle="collapse" data-parent="#accordion"
-                 aria-expanded="false" aria-controls="collapseOne-{{ $index }}" href="#collapseOne-{{ $index }}">
-                <div class="row">
-                    <div class="col-xs-10" >
-                        {{ address.label }}
-                    </div>
-                    <div class="col-xs-2">
-                        <span class="label" style="font-size: 14px;" ng-class="{'label-success': address.nbrMaps.length, 'label-default': !address.nbrMaps.length }">{{ address.nbrMaps.length }}
-                        </span>
-                    </div>
+<div class="list-group panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" ng-repeat="address in addresses track by $index" style="margin-top:-1px;">
+        <div class="panel-heading" role="tab" id="headingOne-{{ $index }}" role="button" data-toggle="collapse"
+             data-parent="#accordion"
+             aria-expanded="false" aria-controls="collapseOne-{{ $index }}" href="#collapseOne-{{ $index }}"
+             style="padding:20px 15px;">
+            <div class="row">
+                <div class="col-xs-10">
+                    {{ address.label }}
                 </div>
-                </h4>
+                <div class="col-xs-2">
+                        <span class="label" style="font-size: 14px;"
+                              ng-class="{'label-success': address.nbrMaps.length, 'label-default': !address.nbrMaps.length }">{{ address.nbrMaps.length }}
+                        </span>
+                </div>
             </div>
+            </h4>
+        </div>
 
-            <div id="collapseOne-{{ $index }}" class="panel-collapse collapse" role="tabpanel"
-                 aria-labelledby="headingOne-{{ $index }}">
-                <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="map in address.maps track by $index" ng-if="address.nbrMaps.length">
-                        <a href="maps/{{map.id}}">
-                            <img src="favicon-32x32.png" alt="">
-                            <span ng-if="map.level">Etage : {{ map.level }}</span> <span
-                                ng-if="map.level && map.building"> - </span>
-                            <span ng-if="map.building">Batiment : {{ map.building }}</span>
-                        </a>
-                    </li>
-                    <li class="list-group-item"><a ui-sref="addMap({id:address.id})"><img src="favicon-32x32.png" alt=""> Ajouter un plan d'évacuation</a>
-                    </li>
-                </ul>
-            </div>
+        <div id="collapseOne-{{ $index }}" class="panel-collapse collapse" role="tabpanel"
+             aria-labelledby="headingOne-{{ $index }}">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="map in address.maps track by $index"
+                    ng-if="address.nbrMaps.length">
+                    <a href="maps/{{map.id}}">
+                        <img src="favicon-32x32.png" alt="">
+                        <span ng-if="map.level">Etage : {{ map.level }}</span> <span ng-if="map.level && map.building"> - </span>
+                        <span ng-if="map.building">Batiment : {{ map.building }}</span>
+                    </a>
+                </li>
+                <li class="list-group-item"><a ui-sref="addMap({id:address.id})"><img src="favicon-32x32.png" alt="">
+                    Ajouter un plan d'évacuation</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
