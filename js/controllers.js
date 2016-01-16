@@ -21,10 +21,6 @@ app
 
         $scope.map = MapRestService.showMap($stateParams.id);
 
-        $scope.reportMap = function () {
-            MapRestService.reportMap($stateParams.id);
-        }
-
     }])
 
     .controller('AddMapCtrl', ['$scope', 'MapRestService', '$stateParams', function ($scope, MapRestService, $stateParams) {
