@@ -12,6 +12,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+    <script src="lib/ng-file-upload.js"></script>
+
     <script src="js/app.js"></script>
     <script src="js/services/MapRestService.js"></script>
     <script src="js/controllers.js"></script>
@@ -19,7 +21,8 @@
 </head>
 <body>
     <div ui-view></div>
-    <a ui-sref="maps">Maps</a>
+    <a ui-sref="addresses">Addresses</a>
     <a ui-sref="map">Show</a>
+    <a ui-sref="addMap({id:1})">test link add map to address 1</a>
 </body>
 </html>
