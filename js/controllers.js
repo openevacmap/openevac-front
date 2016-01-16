@@ -27,8 +27,6 @@ app
             $scope.loading = false;
             console.log(error);
         });
-
-
     }])
 
     .controller('MapCtrl', ['$scope', 'MapRestService', '$stateParams', function ($scope, MapRestService, $stateParams) {
@@ -44,8 +42,25 @@ app
 
     .controller('AddMapCtrl', ['$scope', 'MapRestService', '$stateParams', function ($scope, MapRestService, $stateParams) {
 
-        $scope.addMap = function(map) {
-            MapRestService.addMap($stateParams.id, map, myPosition);
-        }
+		if(!myPosition.coords.lat || !myPosition.coords.lon){
+			navigator.geolocation.getCurrentPosition(function (position) {
 
+				myPosition.coords.lat = position.coords.latitude;
+				myPosition.coords.lon = position.coords.longitude;
+
+				$scope.addMap = function(map) {
+					MapRestService.addMap($stateParams.id, map, myPosition);
+				}
+
+			}, function (error) {
+				alert("impossible de vous localiser ");
+				$scope.loading = false;
+				console.log(error);
+			});
+		}
+		else{
+			$scope.addMap = function(map) {
+				MapRestService.addMap($stateParams.id, map, myPosition);
+			}
+		}
     }]);

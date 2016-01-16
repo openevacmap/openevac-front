@@ -5,7 +5,6 @@ app.factory('MapRestService', ['$http', function ($http) {
      var baseUrl = "http://api.openevacmap.org/v0/";
     //var baseUrl = "http://10.18.182.204:8000/v0/";
 
-
     return {
         getList: getList,
         addMap: addMap,
@@ -30,7 +29,7 @@ app.factory('MapRestService', ['$http', function ($http) {
 
     function addMap(addressId, data, myPosition) {
         return $http({
-            method: 'PATCH',
+            method: 'POST',
             url: baseUrl + 'addresses/' + addressId,
             data: _.extend(data, myPosition.coords)
         });
