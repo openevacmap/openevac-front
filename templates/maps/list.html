@@ -1,0 +1,34 @@
+<h1>list</h1>
+<div class="list-group panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" ng-repeat="address in addresses track by $index">
+        <div class="panel-heading" role="tab" id="headingOne-{{ $index }}">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-{{ $index }}"
+                   aria-expanded="false" aria-controls="collapseOne-{{ $index }}">
+                    {{ $index + 1 }} . {{ address.desc }}
+                    <button ng-if="address.maps.length" class="btn btn-primary btn-sm pull-right">
+                        Plans <span class="badge">{{ address.maps.length }}</span>
+                    </button>
+                    <button ng-if="!address.maps.length" class="btn btn-primary btn-sm pull-right" type="button" ng-click="addMap(address.id)">
+                              Ajouter plan +
+                    </button>
+            </h4>
+        </div>
+        <div id="collapseOne-{{ $index }}" class="panel-collapse collapse" role="tabpanel"
+             aria-labelledby="headingOne-{{ $index }}" >
+            <div class="panel-body">
+                <ul>
+                    <li ng-repeat="map in address.maps track by $index">Etage : {{ map.level }}, Batiment : {{
+                        map.building }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--<a ng-repeat="address in addresses track by $index" class="list-group-item">-->
+    <!--{{ $index + 1 }} . {{ address.desc }}-->
+    <!--<span class="badge" ng-if="address.maps.length">{{ address.maps.length }}</span>-->
+    <!--<span class="badge" ng-if="!address.maps.length" ng-click="addMap">+</span>-->
+    <!--</a>-->
+</div>
