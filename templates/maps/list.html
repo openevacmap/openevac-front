@@ -17,11 +17,9 @@
         <div id="collapseOne-{{ $index }}" class="panel-collapse collapse" role="tabpanel"
              aria-labelledby="headingOne-{{ $index }}" >
             <div class="panel-body">
-                <ul>
-                    <li ng-repeat="map in address.maps track by $index">Etage : {{ map.level }}, Batiment : {{
-                        map.building }}
-                    </li>
-                </ul>
+              <div class="list-group">
+                <button type="button" ng-repeat="map in address.maps track by $index" class="list-group-item">Etage : {{ map.level }}, Batiment : {{map.building }}</button>
+              </div>
             </div>
         </div>
     </div>
