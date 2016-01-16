@@ -15,12 +15,10 @@ app.factory('MapRestService', ['$http', function ($http) {
         return [
             {
                 "id": 1,
-	            "desc": "32 rue de la poste, 75017 Paris",
+                "address_label": "Plan de la cafét de 42",
                 maps: [
                     {
 	                    "id":11,
-
-	                    "desc": "Plan de la cafét de 42",
 	                    "level": 2,
                         "building": "A",
                         "path": "http://www.precisionfloorplan.com/wp-content/uploads/2008/08/emergency-evac-chart-img.jpg"
@@ -35,7 +33,7 @@ app.factory('MapRestService', ['$http', function ($http) {
             },
             {
                 "id": 2,
-                "desc": "Plan de la cafét de 42",
+                "address_label": "Plan de la cafét de 42",
                 "level": 1,
                 "maps": [
                     {
@@ -47,21 +45,21 @@ app.factory('MapRestService', ['$http', function ($http) {
             },
             {
                 "id": 3,
-                "desc": "Plan de la cafét de 42",
+                "address_label": "Plan de la cafét de 42",
                 "level": 2,
                 "address": "33 rue Bessière, 75017 Paris",
                 "building": "B2"
             },
             {
                 "id": 4,
-                "desc": "Plan de la cafét de 42",
+                "address_label": "Plan de la cafét de 42",
                 "level": 2,
                 "address": "34 rue de la poste, 75017 Paris",
                 "building": "B2"
             },
             {
                 "id": 5,
-                "desc": "Plan de la salle de réunion",
+                "address_label": "Plan de la salle de réunion",
                 "level": 3,
                 "address": "35 bd le général leclerc, 31017 Paris",
                 "building": "A"
