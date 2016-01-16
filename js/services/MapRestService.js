@@ -15,26 +15,23 @@ app.factory('MapRestService', ['$http', function ($http) {
         return [
             {
                 "id": 1,
-                "address_label": "Plan de la cafét de 42",
+                "address_label": "17 rue des champs, 75001 Paris",
                 maps: [
                     {
 	                    "id":11,
 	                    "level": 2,
                         "building": "A",
-                        "path": "http://www.precisionfloorplan.com/wp-content/uploads/2008/08/emergency-evac-chart-img.jpg"
                     },
                     {
 	                    "id":12,
                         "level": 3,
                         "building": "A",
-                        "path": "http://sydney.edu.au/whs/images/a19%20image%20reduced%20size.jpg"
                     }
                 ]
             },
             {
                 "id": 2,
-                "address_label": "Plan de la cafét de 42",
-                "level": 1,
+                "address_label": "18 rue des champs, 75001 Paris",
                 "maps": [
                     {
 	                    "id":21,
@@ -45,24 +42,15 @@ app.factory('MapRestService', ['$http', function ($http) {
             },
             {
                 "id": 3,
-                "address_label": "Plan de la cafét de 42",
-                "level": 2,
-                "address": "33 rue Bessière, 75017 Paris",
-                "building": "B2"
+                "address_label": "19 rue des champs, 75001 Paris"
             },
             {
                 "id": 4,
-                "address_label": "Plan de la cafét de 42",
-                "level": 2,
-                "address": "34 rue de la poste, 75017 Paris",
-                "building": "B2"
+                "address_label": "20 rue des champs, 75001 Paris"
             },
             {
                 "id": 5,
-                "address_label": "Plan de la salle de réunion",
-                "level": 3,
-                "address": "35 bd le général leclerc, 31017 Paris",
-                "building": "A"
+                "address_label": "21 rue des champs, 75001 Paris"
             }
         ];
         //return $http({

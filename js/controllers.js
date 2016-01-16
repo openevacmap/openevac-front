@@ -1,7 +1,11 @@
 app
-    .controller('AddressesCtrl', ['$scope', 'MapRestService', '$window', function ($scope, MapRestService, $window) {
+    .controller('AddressesCtrl', ['$scope', 'MapRestService', '$window', '$state', function ($scope, MapRestService, $window, $state) {
 
         $scope.addresses = MapRestService.getList();
+
+        $scope.goToAddMapForm = function(id) {
+            $state.go('addMap', {id: id});
+        };
 
         //// get list of items based on current location
         //$window.navigator.geolocation.getCurrentPosition(function (position) {
