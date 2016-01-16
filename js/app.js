@@ -1,7 +1,7 @@
 var app = angular.module('openEvacMap', ['ui.router', 'ngFileUpload']);
 
-app.config(function($stateProvider) {
-
+app.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
+    
     $stateProvider
         .state('addresses', {
             url: "/{openedTab}",
@@ -17,5 +17,5 @@ app.config(function($stateProvider) {
             url: "/addresses/{id}/add-map",
             templateUrl: "templates/maps/add.html",
             controller: 'AddMapCtrl'
-        })
-});
+        });
+}]);
