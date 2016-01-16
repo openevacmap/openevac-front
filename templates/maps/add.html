@@ -4,7 +4,7 @@
     <form action="{{ actionUrl }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" ng-value="lat" name="lat">
         <input type="hidden" ng-value="lon" name="lon">
-        <input type="hidden" value="?message=uploadSucceeded" name="redirectUrlExtension">
+        <input type="hidden" value="{{ redirectUrl }}" name="redirectUrl">
         <div class="form-group">
             <div class="form-group">
                 <label for="building">Bâtiment</label>

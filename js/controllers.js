@@ -40,9 +40,10 @@ app
 
     }])
 
-    .controller('AddMapCtrl', ['$scope', 'MapRestService', '$stateParams', '$sce', function ($scope, MapRestService, $stateParams, $sce) {
+    .controller('AddMapCtrl', ['$scope', 'MapRestService', '$stateParams', '$sce', '$location', function ($scope, MapRestService, $stateParams, $sce, $location) {
 
         $scope.actionUrl = $sce.trustAsResourceUrl(MapRestService.getBaseUrl() + 'addresses/' + $stateParams.id);
+        $scope.redirectUrl = $sce.trustAsResourceUrl($location.protocol() + '://' + $location.host() + '/maps');
 
         if (!myPosition.coords.lat || !myPosition.coords.lon) {
             navigator.geolocation.getCurrentPosition(function (position) {
