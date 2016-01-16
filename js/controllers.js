@@ -1,3 +1,10 @@
+var myPosition = {
+	coords : {
+		lat: null,
+		lon: null
+	}
+};
+
 app
     .controller('AddressesCtrl', ['$scope', 'MapRestService', '$window', '$state', 'AddressesService', function ($scope, MapRestService, $window, $state, AddressesService) {
 
@@ -7,7 +14,10 @@ app
         //// get list of items based on current location
         navigator.geolocation.getCurrentPosition(function (position) {
 
-            MapRestService.getList(position.coords.latitude, position.coords.longitude)
+	        myPosition.coords.lat = position.coords.latitude;
+	        myPosition.coords.lon = position.coords.longitude;
+
+            MapRestService.getList(myPosition.coords.lat, myPosition.coords.lon)
 	            .then(function(addressesList){
 		            $scope.addresses = AddressesService.aggByAddress(addressesList.data);
                     $scope.loading = false;
@@ -17,8 +27,6 @@ app
             $scope.loading = false;
             console.log(error);
         });
-
-
     }])
 
     .controller('MapCtrl', ['$scope', 'MapRestService', '$stateParams', function ($scope, MapRestService, $stateParams) {
@@ -34,26 +42,25 @@ app
 
     .controller('AddMapCtrl', ['$scope', 'MapRestService', '$stateParams', function ($scope, MapRestService, $stateParams) {
 
-		var myPosition = {
-			coords : {
-				lat: null,
-				lon: null
-			}
-		};
+		if(!myPosition.coords.lat || !myPosition.coords.lon){
+			navigator.geolocation.getCurrentPosition(function (position) {
 
-		navigator.geolocation.getCurrentPosition(function (position) {
+				myPosition.coords.lat = position.coords.latitude;
+				myPosition.coords.lon = position.coords.longitude;
 
-			myPosition.coords.lat = position.coords.latitude;
-			myPosition.coords.lon = position.coords.longitude;
+				$scope.addMap = function(map) {
+					MapRestService.addMap($stateParams.id, map, myPosition);
+				}
 
+			}, function (error) {
+				alert("impossible de vous localiser ");
+				$scope.loading = false;
+				console.log(error);
+			});
+		}
+		else{
 			$scope.addMap = function(map) {
 				MapRestService.addMap($stateParams.id, map, myPosition);
 			}
-
-		}, function (error) {
-			alert("impossible de vous localiser ");
-			$scope.loading = false;
-			console.log(error);
-		});
-
+		}
     }]);

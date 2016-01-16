@@ -30,7 +30,7 @@ app.factory('MapRestService', ['$http', function ($http) {
 
     function addMap(addressId, data, myPosition) {
         return $http({
-            method: 'PATCH',
+            method: 'POST',
             url: baseUrl + 'addresses/' + addressId,
             data: _.extend(data, myPosition.coords)
         });
