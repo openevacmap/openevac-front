@@ -20,6 +20,20 @@
 
 </head>
 <body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">OpenEvacMap</a>
+        </div>
+        <button class="btn btn-alert" >Accueil <span class="glyphicon glyphicon-home"></button>
+        <button class="btn btn-danger pull-right" ng-click="reportMap()">Reporter ce plan <span class="glyphicon glyphicon-warning-sign"></button>
+
+    </div><!-- /.container-fluid -->
+</nav>
+
+
     <div ui-view></div>
     <a ui-sref="addresses">Addresses</a>
     <a ui-sref="map">Show</a>
