@@ -5,15 +5,12 @@
         <div class="panel panel-default" ng-repeat="address in addresses track by $index">
             <div class="panel-heading" role="tab" id="headingOne-{{ $index }}">
                 <div class="row">
-                    <div class="col-xs-10">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion"
-                           href="#collapseOne-{{ $index }}" ng-if="address.maps.length"
-                           aria-expanded="false" aria-controls="collapseOne-{{ $index }}">
-                            <span class="glyphicon glyphicon-map-marker"></span>
-                            {{ address.address_label }}
-                        </a>
+                    <div class="col-xs-10" role="button" data-toggle="collapse" data-parent="#accordion"
+                         aria-expanded="false" aria-controls="collapseOne-{{ $index }}" href="#collapseOne-{{ $index }}">
 
-                        <span ng-if="!address.maps.length"><span class="glyphicon glyphicon-map-marker"></span>  {{ address.address_label }}</span><br>
+                        <span class="glyphicon glyphicon-map-marker" ng-class="{'text-muted': !address.maps.length}"></span>
+                        {{ address.address_label }}
+<br>
                         &nbsp;<span class="label label-success" ng-if="address.maps.length"
                                     class="btn btn-primary btn-sm">{{ address.maps.length }}
                            <ng-pluralize count="address.maps.length"
@@ -24,7 +21,7 @@
                        </span>
                     </div>
                     <div class="col-xs-2">
-                        <span class="pull-right" type="button"
+                        <span class="pull-right text-primary" type="button"
                               ui-sref="addMap({id:address.id})"><span
                                 class="glyphicon glyphicon-plus-sign"
                                 aria-hidden="true"></span> <small class="hidden-xs">Ajouter</small>
@@ -41,7 +38,8 @@
                     <li class="list-group-item" ng-repeat="map in address.maps track by $index">
                         <a href="#/maps/{{map.id}}">
                             <span class="glyphicon glyphicon-picture"></span>
-                            Etage : {{ map.level }} - Batiment : {{map.building }}
+                            <span ng-if="map.level">Etage : {{ map.level }}</span> -
+                            <span ng-if="map.building">Batiment : {{ map.building }}</span>
                         </a>
                     </li>
                 </ul>
