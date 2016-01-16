@@ -10,8 +10,7 @@
             </div>
             <div class="form-group">
                 <label for="level">Etage</label>
-                <input id="level" type="text" class="form-control" ng-model="map.level" name="level" placeholder="Etage"
-                       required>
+                <input id="level" type="text" class="form-control" ng-model="map.level" name="level" placeholder="Etage">
             </div>
             <div class="form-group">
                 <label for="image" for="level">Téléchargez votre photo</label>
@@ -23,6 +22,10 @@
             <i ng-show="myForm.file.$error.maxSize">File too large
                 {{errorFiles[0].size / 1000000|number:1}}MB: max 4M</i>
 
+            <div class="form-group">
+                <label for="name">Donnez un nom à votre map</label>
+                <input id="name" type="text" class="form-control" ng-model="map.name" name="name" placeholder="Nom">
+            </div>
             <button class="btn btn-primary" type="submit">Envoyer</button>
         </div>
     </form>

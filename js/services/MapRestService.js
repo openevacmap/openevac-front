@@ -35,7 +35,7 @@ app.factory('MapRestService', ['$http', function ($http) {
         return $http({
             method: 'POST',
             url: baseUrl + 'addresses/' + addressId,
-            data: {addressId: addressId, data:data }
+            data: {data:data }
         });
     }
 
