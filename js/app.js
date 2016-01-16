@@ -1,7 +1,10 @@
 var app = angular.module('openEvacMap', ['ui.router', 'ngFileUpload']);
 
 app.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
-    
+
+    // uncomment to remove hashtag from URL on production, and add <base href="/"> to the <head> section of index
+    //$locationProvider.html5Mode(true).hashPrefix('!')
+
     $stateProvider
         .state('addresses', {
             url: "/{openedTab}",
@@ -19,3 +22,4 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
             controller: 'AddMapCtrl'
         });
 }]);
+
