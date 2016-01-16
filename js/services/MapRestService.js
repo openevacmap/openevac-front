@@ -11,62 +11,62 @@ app.factory('MapRestService', ['$http', function ($http) {
     };
 
     function getList(lat, lng) {
-        //return [
-        //    {
-        //        "id": 1,
-        //        "desc": "Plan de la cafét de 42",
-        //        "address": "32 rue de la poste, 75017 Paris",
-        //        maps: [
-        //            {
-        //                "level": 2,
-        //                "building": "A",
-        //                "path": "http://www.precisionfloorplan.com/wp-content/uploads/2008/08/emergency-evac-chart-img.jpg"
-        //            },
-        //            {
-        //                "level": 3,
-        //                "building": "A",
-        //                "path": "http://sydney.edu.au/whs/images/a19%20image%20reduced%20size.jpg"
-        //            }
-        //        ]
-        //    },
-        //    {
-        //        "id": 2,
-        //        "desc": "Plan de la cafét de 42",
-        //        "level": 1,
-        //        "maps": [
-        //            {
-        //                "address": "32 rue Bessière, 75017 Paris",
-        //                "building": "B2"
-        //            }
-        //        ]
-        //    },
-        //    {
-        //        "id": 3,
-        //        "desc": "Plan de la cafét de 42",
-        //        "level": 2,
-        //        "address": "33 rue Bessière, 75017 Paris",
-        //        "building": "B2"
-        //    },
-        //    {
-        //        "id": 4,
-        //        "desc": "Plan de la cafét de 42",
-        //        "level": 2,
-        //        "address": "34 rue de la poste, 75017 Paris",
-        //        "building": "B2"
-        //    },
-        //    {
-        //        "id": 5,
-        //        "desc": "Plan de la salle de réunion",
-        //        "level": 3,
-        //        "address": "35 bd le général leclerc, 31017 Paris",
-        //        "building": "A"
-        //    }
-        //];
-        return $http({
-            method: 'GET',
-            url: baseUrl + 'maps-info',
-            data: {lat:lat, lng:lng}
-        });
+        return [
+            {
+                "id": 1,
+                "desc": "Plan de la cafét de 42",
+                "address": "32 rue de la poste, 75017 Paris",
+                maps: [
+                    {
+                        "level": 2,
+                        "building": "A",
+                        "path": "http://www.precisionfloorplan.com/wp-content/uploads/2008/08/emergency-evac-chart-img.jpg"
+                    },
+                    {
+                        "level": 3,
+                        "building": "A",
+                        "path": "http://sydney.edu.au/whs/images/a19%20image%20reduced%20size.jpg"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "desc": "Plan de la cafét de 42",
+                "level": 1,
+                "maps": [
+                    {
+                        "address": "32 rue Bessière, 75017 Paris",
+                        "building": "B2"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "desc": "Plan de la cafét de 42",
+                "level": 2,
+                "address": "33 rue Bessière, 75017 Paris",
+                "building": "B2"
+            },
+            {
+                "id": 4,
+                "desc": "Plan de la cafét de 42",
+                "level": 2,
+                "address": "34 rue de la poste, 75017 Paris",
+                "building": "B2"
+            },
+            {
+                "id": 5,
+                "desc": "Plan de la salle de réunion",
+                "level": 3,
+                "address": "35 bd le général leclerc, 31017 Paris",
+                "building": "A"
+            }
+        ];
+        //return $http({
+        //    method: 'GET',
+        //    url: baseUrl + 'maps-info',
+        //    data: {lat:lat, lng:lng}
+        //});
     }
 
     function showMap(id) {

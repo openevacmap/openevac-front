@@ -1,13 +1,14 @@
 app
     .controller('MapsCtrl', ['$scope', 'MapRestService', '$window', function ($scope, MapRestService, $window) {
+        $scope.addresses = MapRestService.getList();
 
-        // get list of items based on current location
-        $window.navigator.geolocation.getCurrentPosition(function (position) {
-            $scope.addresses = MapRestService.getList(position.coords.latitude, position.coords.longitude);
-        }, function (error) {
-            alert("impossible de vous localiser ");
-            console.log(error);
-        });
+        //// get list of items based on current location
+        //$window.navigator.geolocation.getCurrentPosition(function (position) {
+        //    $scope.addresses = MapRestService.getList(position.coords.latitude, position.coords.longitude);
+        //}, function (error) {
+        //    alert("impossible de vous localiser ");
+        //    console.log(error);
+        //});
 
     }])
 
