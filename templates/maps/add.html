@@ -1,0 +1,10 @@
+<h1>add map</h1>
+
+
+<input type="text" ng-model="map.building" name="building" placeholder="Bâtiment"><br>
+<input type="text" ng-model="map.level" name="level" placeholder="Etage"><br>
+<input type="file" ng-model="map.image" name="image" placeholder="Photo du plan d'évacuation"><br>
+
+<button ng-click="addMap(map)">Envoyer votre plan</button>
+
+{{ map }}

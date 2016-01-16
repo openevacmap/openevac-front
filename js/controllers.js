@@ -1,5 +1,6 @@
 app
     .controller('AddressesCtrl', ['$scope', 'MapRestService', '$window', function ($scope, MapRestService, $window) {
+
         $scope.addresses = MapRestService.getList();
 
         //// get list of items based on current location
@@ -22,12 +23,10 @@ app
 
     }])
 
-    .controller('EditMapCtrl', ['$scope', 'MapRestService', '$stateParams', function ($scope, MapRestService, $stateParams) {
+    .controller('AddMapCtrl', ['$scope', 'MapRestService', '$stateParams', function ($scope, MapRestService, $stateParams) {
 
-        $scope.map = MapRestService.showMap($stateParams.id);
-
-        $scope.reportMap = function () {
-            MapRestService.reportMap($stateParams.id);
+        $scope.addMap = function(map) {
+            MapRestService.updateAddress($stateParams.id, map);
         }
 
     }]);

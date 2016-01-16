@@ -6,7 +6,7 @@ app.factory('MapRestService', ['$http', function ($http) {
 
     return {
         getList: getList,
-        updateMap: updateMap,
+        updateAddress: updateAddress,
         showMap: showMap
     };
 
@@ -80,12 +80,13 @@ app.factory('MapRestService', ['$http', function ($http) {
         //});
     }
 
-    function updateMap(id, data) {
-        return $http({
-            method: 'PUT',
-            url: baseUrl + 'maps/' + id,
-            data: data
-        });
+    function updateAddress(id, data) {
+        console.log(id, data);
+        //return $http({
+        //    method: 'PUT',
+        //    url: baseUrl + 'addresses/' + id,
+        //    data: data
+        //});
     }
 
     function reportMap(id) {
