@@ -10,8 +10,9 @@ app.factory('AddressesService', ['$http', function ($http) {
 				.groupBy('address')
 				.map(function(val, key){
 					return {
-						addressId : key,
-						mapsList : val
+						id : key,
+						maps : val,
+						label : val[0].address_label
 					}
 				})
 				.value();

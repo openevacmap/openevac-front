@@ -10,6 +10,7 @@ app
             MapRestService.getList(position.coords.latitude, position.coords.longitude)
 	            .then(function(addressesList){
 		            $scope.addresses = AddressesService.aggByAddress(addressesList.data);
+		            console.log($scope.addresses);
 	            });
         }, function (error) {
             alert("impossible de vous localiser ");
