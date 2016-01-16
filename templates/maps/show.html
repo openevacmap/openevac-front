@@ -1,19 +1,24 @@
 <div class="container-fluid">
-    <div class="input-group" style="width:100%">
-        <span class="input-group-addon" style="width:30%">Créé le</span>
-        <span type="text" class="form-control" aria-describedby="basic-addon1">{{ map.date }}</span>
+    <div class="row">
+        <a href="{{ map.path }}">
+            <img src="{{ map.path }}" style="max-width: 100%">
+        </a>
     </div>
 
-    <div class="input-group" style="width:100%">
-        <span class="input-group-addon" style="width:30%">Bâtiment</span>
-        <span type="text" class="form-control" aria-describedby="basic-addon1">{{ map.building }}</span>
+    <div class="row">
+        <ul class="list-group">
+            <li type="text" class="list-group-item" aria-describedby="basic-addon1" ng-if="map.level">
+                Etage : <strong>{{ map.level }}</strong>
+            </li>
+            <li type="text" class="list-group-item" aria-describedby="basic-addon1">
+                Bâtiment : <strong>{{ map.building }}</strong>
+            </li>
+
+        </ul>
     </div>
 
-    <div class="input-group" style="width:100%">
-        <span class="input-group-addon" style="width:30%">Etage</span>
-        <span type="text" class="form-control" aria-describedby="basic-addon1">{{ map.level }}</span>
+    <div class="row">
+        <button class="btn btn-alert" ng-click="reportMap()">Reporter ce plan</button>
     </div>
 
-    <img src="{{ map.path }}" alt="">
-    <button class="btn btn-alert" ng-click="reportMap()">Reporter ce plan</button>
 </div>
