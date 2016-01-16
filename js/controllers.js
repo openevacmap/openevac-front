@@ -1,9 +1,13 @@
 app
-    .controller('MapsCtrl', ['$scope', 'MapRestService', function ($scope, MapRestService) {
+    .controller('MapsCtrl', ['$scope', 'MapRestService', '$window', function ($scope, MapRestService, $window) {
 
-        // TODO : geolocation
-
-        $scope.addresses = MapRestService.getList();
+        // get list of items based on current location
+        $window.navigator.geolocation.getCurrentPosition(function (position) {
+            $scope.addresses = MapRestService.getList(position.coords.latitude, position.coords.longitude);
+        }, function (error) {
+            alert("impossible de vous localiser ");
+            console.log(error);
+        });
 
     }])
 
@@ -11,7 +15,7 @@ app
 
         $scope.map = MapRestService.showMap($stateParams.id);
 
-        $scope.reportMap = function() {
+        $scope.reportMap = function () {
             MapRestService.reportMap($stateParams.id);
         }
 
