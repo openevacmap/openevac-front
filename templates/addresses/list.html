@@ -1,33 +1,39 @@
 <div class="container-fluid">
-    <p>Plans d'évacuations à proximité</p>
+    <p>Plans d'évacuations à proximité :</p>
+
     <div class="list-group panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default" ng-repeat="address in addresses track by $index">
             <div class="panel-heading" role="tab" id="headingOne-{{ $index }}">
                 <div class="row">
-                    <div class="col-xs-10">
+                    <div class="col-xs-8">
                         <h4 class="panel-title">
 
                             <a role="button" data-toggle="collapse" data-parent="#accordion"
                                href="#collapseOne-{{ $index }}" ng-if="address.maps.length"
                                aria-expanded="false" aria-controls="collapseOne-{{ $index }}">
+                                <span class="glyphicon glyphicon-map-marker"></span>
                                 {{ address.address_label }}
                             </a>
-                                &nbsp;<span class="label label-success" ng-if="address.maps.length" class="btn btn-primary btn-sm">{{ address.maps.length }}
+
+                            <span ng-if="!address.maps.length"><span class="glyphicon glyphicon-map-marker"></span>  {{ address.address_label }}</span>
+
+                        </h4>
+                    </div>
+                    <div class="col-xs-3">
+                        &nbsp;<span class="label label-success" ng-if="address.maps.length"
+                                    class="btn btn-primary btn-sm">{{ address.maps.length }}
                            <ng-pluralize count="address.maps.length"
                                          when="{'0': '',
                                                  '1': 'plan',
                                                  'other': 'plans'}">
                            </ng-pluralize>
                            </span>
-                            <span class="disabled"  ng-if="!address.maps.length">{{ address.address_label }}</span>
-
-                        </h4>
                     </div>
-                    <div class="col-xs-2">
+                    <div class="col-xs-1">
                         <span class="pull-right" type="button"
-                                                  ui-sref="addMap({id:address.id})"><span
-                                                    class="glyphicon glyphicon-plus-sign"
-                                                    aria-hidden="true"></span> <small class="hidden-xs">Ajouter</small>
+                              ui-sref="addMap({id:address.id})"><span
+                                class="glyphicon glyphicon-plus-sign"
+                                aria-hidden="true"></span> <small class="hidden-xs">Ajouter</small>
                         </span>
                     </div>
                 </div>
@@ -40,7 +46,7 @@
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="map in address.maps track by $index">
                         <a href="#/maps/{{map.id}}">
-                            <span class="glyphicon glyphicon-map-marker"></span>
+                            <span class="glyphicon glyphicon-picture"></span>
                             Etage : {{ map.level }} - Batiment : {{map.building }}
                         </a>
                     </li>
