@@ -6,6 +6,9 @@ app.config(['$stateProvider', '$locationProvider', '$httpProvider', '$sceDelegat
 
 		$locationProvider.html5Mode(true).hashPrefix('!');
 
+        // WARNING : DEMO ONLY not secure
+        $sceDelegateProvider.resourceUrlWhitelist(['*', 'self']);
+
     $stateProvider
         .state('addresses', {
             url: "/{openedTab}",

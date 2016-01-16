@@ -45,16 +45,21 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" style="margin-bottom: 0;">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <a class="navbar-brand" ui-sref="addresses">OpenEvacMap</a>
-        </div>
-    </div><!-- /.container-fluid -->
-</nav>
 
-    <div ui-view></div>
+            <div class='btn-toolbar pull-right'>
+                <div class='btn-group'>
+                    <span class='glyphicon glyphicon-info-sign pull-right' style="color: white;margin-top: 18px;margin-right: 18px;"></span>
+                </div>
+            </div>
+        </div>
+
+</nav>
+<div ui-view></div>
 
 </body>
 </html>
