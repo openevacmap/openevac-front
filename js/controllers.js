@@ -1,3 +1,10 @@
+var myPosition = {
+	coords : {
+		lat: null,
+		lon: null
+	}
+};
+
 app
     .controller('AddressesCtrl', ['$scope', 'MapRestService', '$window', '$state', 'AddressesService', function ($scope, MapRestService, $window, $state, AddressesService) {
 

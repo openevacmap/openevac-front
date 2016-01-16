@@ -1,6 +1,5 @@
 var app = angular.module('openEvacMap', ['ui.router', 'ngFileUpload']);
 
-
 app.config(['$stateProvider', '$locationProvider', '$httpProvider', '$sceDelegateProvider',
 	function($stateProvider, $locationProvider, $httpProvider, $sceDelegateProvider) {
 

@@ -2,9 +2,14 @@
 
 app.factory('MapRestService', ['$http', function ($http) {
 
+<<<<<<< HEAD
     //var baseUrl = "http://api.openevacmap.org/v0/";
     var baseUrl = "http://10.18.182.204:8000/v0/";
 
+=======
+    var baseUrl = "http://api.openevacmap.org/v0/";
+    //var baseUrl = "http://10.18.182.204:8000/v0/";
+>>>>>>> aggreg on adresses without maps
 
     return {
         getList: getList,
