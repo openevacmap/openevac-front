@@ -27,7 +27,7 @@
                         <span class="pull-right" type="button"
                                                   ui-sref="addMap({id:address.id})"><span
                                                     class="glyphicon glyphicon-plus-sign"
-                                                    aria-hidden="true"></span> <small>Ajouter</small>
+                                                    aria-hidden="true"></span> <small class="hidden-xs">Ajouter</small>
                         </span>
                     </div>
                 </div>
@@ -40,6 +40,7 @@
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="map in address.maps track by $index">
                         <a href="#/maps/{{map.id}}">
+                            <span class="glyphicon glyphicon-map-marker"></span> 
                             Etage : {{ map.level }} - Batiment : {{map.building }}
                         </a>
                     </li>

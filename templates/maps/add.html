@@ -1,15 +1,30 @@
-<h1>add map</h1>
+<div class="container-fluid">
+    <h1>Ajouter un plan d'évacuation</h1>
 
-<form ng-submit="addMap(map)">
-    <input type="text" ng-model="map.building" name="building" placeholder="Bâtiment"  required><br>
-    <input type="text" ng-model="map.level" name="level" placeholder="Etage"  required><br>
-    <input type="file" ngf-select ng-model="map.image" name="file"
-           accept="image/*" ngf-max-size="4MB" required
-           ngf-model-invalid="errorFiles">
-    <br>
-    <i ng-show="myForm.file.$error.required">*required</i><br>
-    <i ng-show="myForm.file.$error.maxSize">File too large
-        {{errorFiles[0].size / 1000000|number:1}}MB: max 4M</i>
+    <form ng-submit="addMap(map)">
+        <div class="form-group">
+            <div class="form-group">
+                <label for="building">Bâtiment</label>
+                <input id="building" type="text" class="form-control" ng-model="map.building" name="building"
+                       placeholder="Bâtiment">
+            </div>
+            <div class="form-group">
+                <label for="level">Etage</label>
+                <input id="level" type="text" class="form-control" ng-model="map.level" name="level" placeholder="Etage"
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="image" for="level">Téléchargez votre photo</label>
+                <input id="image" type="file" ngf-select ng-model="map.image" name="file"
+                       accept="image/*" ngf-max-size="4MB" required
+                       ngf-model-invalid="errorFiles">
+            </div>
+            <i ng-show="myForm.file.$error.required">*required</i><br>
+            <i ng-show="myForm.file.$error.maxSize">File too large
+                {{errorFiles[0].size / 1000000|number:1}}MB: max 4M</i>
 
-    <button type="submit">Envoyer votre plan</button>
-</form>
+            <button class="btn btn-primary" type="submit">Envoyer vot</button>
+        </div>
+    </form>
+</div>
+
