@@ -9,11 +9,15 @@
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-{{ $index }}"
                        aria-expanded="false" aria-controls="collapseOne-{{ $index }}">
                         {{ $index + 1 }} . {{ address.address_label }}
-                        <button ng-if="address.maps.length" class="btn btn-primary btn-sm pull-right">
-                            Plans Existants <span class="badge">{{ address.maps.length }}</span>
-                        </button>
+                        &nbsp;<span class="badge" ng-if="address.maps.length" class="btn btn-primary btn-sm">{{ address.maps.length }}
+                           <ng-pluralize count="address.maps.length"
+                                         when="{'0': '',
+                                                 '1': 'plan',
+                                                 'other': 'plans'}">
+                           </ng-pluralize>
+                   </span>
                     </a>
-                    <button class="btn btn-primary btn-sm pull-right" type="button"
+                    <button class="btn btn-primary btn-xs pull-right" type="button"
                             ui-sref="addMap({id:address.id})">
                         Ajouter un plan <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                     </button>
@@ -21,19 +25,15 @@
                 </h4>
             </div>
 
-            <div id="collapseOne-{{ $index }}" class="panel-collapse collapse" role="tabpanel"
+            <div id="collapseOne-{{ $index }}" class="panel-collapse collapse" role="tabpanel" ng-if="address.maps.length"
                  aria-labelledby="headingOne-{{ $index }}">
-                <div class="panel-body">
-
                     <ul class="list-group">
                         <li class="list-group-item" ng-repeat="map in address.maps track by $index">
                             <a href="#/maps/{{map.id}}">
-                                Etage : {{ map.level }}, Batiment : {{map.building }}
+                                Etage : {{ map.level }} - Batiment : {{map.building }}
                             </a>
                         </li>
                     </ul>
-
-                </div>
             </div>
         </div>
     </div>

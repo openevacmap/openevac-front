@@ -4,7 +4,7 @@ app.config(function($stateProvider) {
 
     $stateProvider
         .state('addresses', {
-            url: "/",
+            url: "/{openedTab}",
             templateUrl: "templates/addresses/list.html",
             controller: 'AddressesCtrl'
         })
