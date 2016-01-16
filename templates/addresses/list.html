@@ -1,6 +1,7 @@
 <h1>list</h1>
 <div class="list-group panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default" ng-repeat="address in addresses track by $index">
+
         <div class="panel-heading" role="tab" id="headingOne-{{ $index }}">
             <h4 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-{{ $index }}"
@@ -12,14 +13,21 @@
                     <button ng-if="!address.maps.length" class="btn btn-primary btn-sm pull-right" type="button" ng-click="addMap(address.id)">
                               Ajouter plan +
                     </button>
+                  </a>
             </h4>
         </div>
-        <div id="collapseOne-{{ $index }}" class="panel-collapse collapse" role="tabpanel"
+
+      <div id="collapseOne-{{ $index }}" class="panel-collapse collapse" role="tabpanel"
              aria-labelledby="headingOne-{{ $index }}" >
             <div class="panel-body">
-              <div class="list-group">
-                <button type="button" ng-repeat="map in address.maps track by $index" class="list-group-item">Etage : {{ map.level }}, Batiment : {{map.building }}</button>
-              </div>
+
+              <ul class="list-group">
+                <li class="list-group-item" ng-repeat="map in address.maps track by $index">
+                  <a href="#/maps/{{map.id}}">
+                    Etage : {{ map.level }}, Batiment : {{map.building }}
+                  </a>
+                </li>
+              </ul>
             </div>
         </div>
     </div>
