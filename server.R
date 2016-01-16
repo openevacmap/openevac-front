@@ -11,10 +11,11 @@ shinyServer(function(input, output) {
   output$mymap <- renderLeaflet({
     leaflet() %>%
       addProviderTiles("OpenStreetMap.HOT",
-                       options = providerTileOptions(noWrap = TRUE)) %>% setView(lng = 2.3572111, lat = 48.8581874, zoom = 15)
+                       options = providerTileOptions(noWrap = TRUE)) %>% setView(lng = 2.3572111, lat = 48.8581874, zoom = 15) #%>% 
+    #addMarkers(data = list(2.3572111,48.8581874),layerId = 1)
   })
   
-  # Nom du bâtiment
+  # Nom du batiment
   output$name <- renderText({ 
     "CRI Site Charles V"
   })
@@ -32,5 +33,4 @@ shinyServer(function(input, output) {
       alt = "Plan"
     )
   }, deleteFile = FALSE)
-  
 })
