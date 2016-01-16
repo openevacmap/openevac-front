@@ -1,4 +1,4 @@
-var app = angular.module('openEvacMap', ['ui.router']);
+var app = angular.module('openEvacMap', ['ui.router', 'ngFileUpload']);
 
 app.config(function($stateProvider) {
 
@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
             controller: 'AddressesCtrl'
         })
         .state('map', {
-            url: "/maps/{id}",
+            url: "/maps?id=",
             templateUrl: "templates/maps/show.html",
             controller: 'MapCtrl'
         })

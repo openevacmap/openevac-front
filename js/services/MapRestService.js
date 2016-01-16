@@ -6,8 +6,9 @@ app.factory('MapRestService', ['$http', function ($http) {
 
     return {
         getList: getList,
-        updateAddress: updateAddress,
-        showMap: showMap
+        addMap: addMap,
+        showMap: showMap,
+        getBaseUrl : getBaseUrl
     };
 
     function getList(lat, lng) {
@@ -80,13 +81,12 @@ app.factory('MapRestService', ['$http', function ($http) {
         //});
     }
 
-    function updateAddress(id, data) {
-        console.log(id, data);
-        //return $http({
-        //    method: 'PUT',
-        //    url: baseUrl + 'addresses/' + id,
-        //    data: data
-        //});
+    function addMap(addressId, data) {
+        return $http({
+            method: 'POST',
+            url: baseUrl + 'addresses/' + addressId,
+            data: {addressId: addressId, data:data }
+        });
     }
 
     function reportMap(id) {
@@ -94,5 +94,9 @@ app.factory('MapRestService', ['$http', function ($http) {
             method: 'PUT',
             url: baseUrl + 'alert-map/' + id
         });
+    }
+
+    function getBaseUrl() {
+        return baseUrl;
     }
 }]);

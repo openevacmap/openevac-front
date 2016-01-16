@@ -26,7 +26,7 @@ app
     .controller('AddMapCtrl', ['$scope', 'MapRestService', '$stateParams', function ($scope, MapRestService, $stateParams) {
 
         $scope.addMap = function(map) {
-            MapRestService.updateAddress($stateParams.id, map);
+            MapRestService.addMap($stateParams.id, map);
         }
 
     }]);

@@ -1,10 +1,15 @@
 <h1>add map</h1>
 
+<form ng-submit="addMap(map)">
+    <input type="text" ng-model="map.building" name="building" placeholder="Bâtiment"  required><br>
+    <input type="text" ng-model="map.level" name="level" placeholder="Etage"  required><br>
+    <input type="file" ngf-select ng-model="map.image" name="file"
+           accept="image/*" ngf-max-size="4MB" required
+           ngf-model-invalid="errorFiles">
+    <br>
+    <i ng-show="myForm.file.$error.required">*required</i><br>
+    <i ng-show="myForm.file.$error.maxSize">File too large
+        {{errorFiles[0].size / 1000000|number:1}}MB: max 4M</i>
 
-<input type="text" ng-model="map.building" name="building" placeholder="Bâtiment"><br>
-<input type="text" ng-model="map.level" name="level" placeholder="Etage"><br>
-<input type="file" ng-model="map.image" name="image" placeholder="Photo du plan d'évacuation"><br>
-
-<button ng-click="addMap(map)">Envoyer votre plan</button>
-
-{{ map }}
+    <button type="submit">Envoyer votre plan</button>
+</form>
