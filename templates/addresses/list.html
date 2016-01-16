@@ -1,6 +1,8 @@
 <div class="container-fluid">
     <p>Plans d'évacuations à proximité :</p>
 
+    <img src="img/ajax-loader.gif" class="img-responsive center-block" ng-show="loading">
+
     <div class="list-group panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default" ng-repeat="address in addresses track by $index">
             <div class="panel-heading" role="tab" id="headingOne-{{ $index }}">
@@ -9,8 +11,7 @@
                          aria-expanded="false" aria-controls="collapseOne-{{ $index }}" href="#collapseOne-{{ $index }}">
 
                         <span class="glyphicon glyphicon-map-marker" ng-class="{'text-muted': !address.maps.length}"></span>
-                        {{ address.label }}
-<br>
+                        {{ address.label }}<br>
                         &nbsp;<span class="label label-success" ng-if="address.maps.length"
                                     class="btn btn-primary btn-sm">{{ address.maps.length }}
                            <ng-pluralize count="address.maps.length"
