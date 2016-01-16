@@ -1,19 +1,21 @@
 app
-    .controller('AddressesCtrl', ['$scope', 'MapRestService', '$window', '$state', function ($scope, MapRestService, $window, $state) {
-
-        $scope.addresses = MapRestService.getList();
+    .controller('AddressesCtrl', ['$scope', 'MapRestService', '$window', '$state', 'AddressesService', function ($scope, MapRestService, $window, $state, AddressesService) {
 
         $scope.goToAddMapForm = function(id) {
             $state.go('addMap', {id: id});
         };
 
         //// get list of items based on current location
-        //$window.navigator.geolocation.getCurrentPosition(function (position) {
-        //    $scope.addresses = MapRestService.getList(position.coords.latitude, position.coords.longitude);
-        //}, function (error) {
-        //    alert("impossible de vous localiser ");
-        //    console.log(error);
-        //});
+        navigator.geolocation.getCurrentPosition(function (position) {
+            MapRestService.getList(position.coords.latitude, position.coords.longitude)
+	            .then(function(addressesList){
+		            $scope.addresses = AddressesService.aggByAddress(addressesList.data);
+	            });
+        }, function (error) {
+            alert("impossible de vous localiser ");
+            console.log(error);
+        });
+
 
     }])
 

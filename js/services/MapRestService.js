@@ -12,52 +12,10 @@ app.factory('MapRestService', ['$http', function ($http) {
     };
 
     function getList(lat, lng) {
-        return [
-            {
-                "id": 1,
-                "address_label": "17 rue des champs, 75001 Paris",
-                maps: [
-                    {
-	                    "id":11,
-	                    "level": 2,
-                        "building": "A",
-                    },
-                    {
-	                    "id":12,
-                        "level": 3,
-                        "building": "A",
-                    }
-                ]
-            },
-            {
-                "id": 2,
-                "address_label": "18 rue des champs, 75001 Paris",
-                "maps": [
-                    {
-	                    "id":21,
-                        "address": "32 rue Bessière, 75017 Paris",
-                        "building": "B2"
-                    }
-                ]
-            },
-            {
-                "id": 3,
-                "address_label": "19 rue des champs, 75001 Paris"
-            },
-            {
-                "id": 4,
-                "address_label": "20 rue des champs, 75001 Paris"
-            },
-            {
-                "id": 5,
-                "address_label": "21 rue des champs, 75001 Paris"
-            }
-        ];
-        //return $http({
-        //    method: 'GET',
-        //    url: baseUrl + 'maps-info',
-        //    data: {lat:lat, lng:lng}
-        //});
+        return $http({
+            method: 'GET',
+            url: baseUrl + 'maps-info?lat='+ lat + '&lon=' + lng
+        });
     }
 
     function showMap(id) {
