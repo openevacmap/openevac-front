@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
             controller: 'AddressesCtrl'
         })
         .state('map', {
-            url: "/maps?id=",
+            url: "/maps/{id}",
             templateUrl: "templates/maps/show.html",
             controller: 'MapCtrl'
         })

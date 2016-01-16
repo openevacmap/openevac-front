@@ -77,7 +77,7 @@ app.factory('MapRestService', ['$http', function ($http) {
         };
         //return $http({
         //    method: 'GET',
-        //    url: baseUrl + 'maps/' + id
+        //    url: baseUrl + 'maps?id=' + id
         //});
     }
 
