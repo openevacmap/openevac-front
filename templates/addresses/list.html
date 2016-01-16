@@ -7,13 +7,17 @@
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-{{ $index }}"
                    aria-expanded="false" aria-controls="collapseOne-{{ $index }}">
                     {{ $index + 1 }} . {{ address.desc }}
-                    <button ng-if="address.maps.length" class="btn btn-primary btn-sm pull-right">
-                        Plans <span class="badge">{{ address.maps.length }}</span>
+
+                    <button class="btn btn-primary btn-sm pull-right" type="button"
+                            ui-sref="addMap({id: address.id})">
+                        Ajouter un plan <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                     </button>
-                    <button ng-if="!address.maps.length" class="btn btn-primary btn-sm pull-right" type="button" ng-click="addMap(address.id)">
-                              Ajouter plan +
-                    </button>
-                  </a>
+
+                  <button ng-if="address.maps.length" class="btn btn-primary btn-sm pull-right">
+                    Plans Existants <span class="badge">{{ address.maps.length }}</span>
+                  </button>
+
+                </a>
             </h4>
         </div>
 
@@ -31,10 +35,4 @@
             </div>
         </div>
     </div>
-
-    <!--<a ng-repeat="address in addresses track by $index" class="list-group-item">-->
-    <!--{{ $index + 1 }} . {{ address.desc }}-->
-    <!--<span class="badge" ng-if="address.maps.length">{{ address.maps.length }}</span>-->
-    <!--<span class="badge" ng-if="!address.maps.length" ng-click="addMap">+</span>-->
-    <!--</a>-->
 </div>

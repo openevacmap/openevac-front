@@ -6,15 +6,16 @@ app.factory('MapRestService', ['$http', function ($http) {
 
     return {
         getList: getList,
-        updateMap: updateMap,
-        showMap: showMap
+        addMap: addMap,
+        showMap: showMap,
+        getBaseUrl : getBaseUrl
     };
 
     function getList(lat, lng) {
         return [
             {
                 "id": 1,
-	            "address": "32 rue de la poste, 75017 Paris",
+	            "desc": "32 rue de la poste, 75017 Paris",
                 maps: [
                     {
 	                    "id":11,
@@ -76,19 +77,21 @@ app.factory('MapRestService', ['$http', function ($http) {
     function showMap(id) {
         return {
             path: 'http://www.precisionfloorplan.com/wp-content/uploads/2008/08/emergency-evac-chart-img.jpg',
-            date: '12/12/2015 15:00'
+            date: '12/12/2015 15:00',
+	        building: 'A1',
+	        level: '4ème'
         };
         //return $http({
         //    method: 'GET',
-        //    url: baseUrl + 'maps/' + id
+        //    url: baseUrl + 'maps?id=' + id
         //});
     }
 
-    function updateMap(id, data) {
+    function addMap(addressId, data) {
         return $http({
-            method: 'PUT',
-            url: baseUrl + 'maps/' + id,
-            data: data
+            method: 'POST',
+            url: baseUrl + 'addresses/' + addressId,
+            data: {addressId: addressId, data:data }
         });
     }
 
@@ -97,5 +100,9 @@ app.factory('MapRestService', ['$http', function ($http) {
             method: 'PUT',
             url: baseUrl + 'alert-map/' + id
         });
+    }
+
+    function getBaseUrl() {
+        return baseUrl;
     }
 }]);
