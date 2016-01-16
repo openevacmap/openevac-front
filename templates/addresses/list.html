@@ -11,9 +11,10 @@
                          aria-expanded="false" aria-controls="collapseOne-{{ $index }}" href="#collapseOne-{{ $index }}">
 
                         <span class="glyphicon glyphicon-map-marker" ng-class="{'text-muted': !address.maps.length}"></span>
-                        {{ address.label }}<br>
-                        &nbsp;<span class="label label-success" ng-if="address.maps.length"
-                                    class="btn btn-primary btn-sm">{{ address.maps.length }}
+                        {{ address.label }}
+<br>
+                        &nbsp;<span class="label label-success" ng-if="address.nbrMaps.length"
+                                    class="btn btn-primary btn-sm">{{ address.nbrMaps.length }}
                            <ng-pluralize count="address.maps.length"
                                          when="{'0': '',
                                                  '1': 'plan',
@@ -24,8 +25,8 @@
                     <div class="col-xs-2">
                         <span class="pull-right text-primary" type="button"
                               ui-sref="addMap({id:address.id})"><span
-                                class="glyphicon glyphicon-plus-sign"
-                                aria-hidden="true"></span> <small class="hidden-xs">Ajouter</small>
+                              class="glyphicon glyphicon-plus-sign"
+                              aria-hidden="true"></span> <small class="hidden-xs">Ajouter</small>
                         </span>
                     </div>
                 </div>
@@ -33,7 +34,7 @@
             </div>
 
             <div id="collapseOne-{{ $index }}" class="panel-collapse collapse" role="tabpanel"
-                 ng-if="address.maps.length"
+                 ng-if="address.nbrMaps.length"
                  aria-labelledby="headingOne-{{ $index }}">
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="map in address.maps track by $index">

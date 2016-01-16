@@ -3,6 +3,7 @@
 app.factory('MapRestService', ['$http', function ($http) {
 
     var baseUrl = "http://api.openevacmap.org/v0/";
+    //var baseUrl = "http://10.18.182.204:8000/v0/";
 
     return {
         getList: getList,
@@ -13,29 +14,24 @@ app.factory('MapRestService', ['$http', function ($http) {
 
     function getList(lat, lng) {
         return $http({
-            method: 'GET',
-            url: baseUrl + 'maps-info?lat='+ lat + '&lon=' + lng
+	        'Access-Control-Allow-Origin': '*',
+            'method': 'GET',
+            'url': baseUrl + 'maps-info?lat='+ lat + '&lon=' + lng
         });
     }
 
     function showMap(id) {
-        return {
-            path: 'http://www.precisionfloorplan.com/wp-content/uploads/2008/08/emergency-evac-chart-img.jpg',
-            date: '12/12/2015 15:00',
-	        building: 'A1',
-	        level: '4ème'
-        };
-        //return $http({
-        //    method: 'GET',
-        //    url: baseUrl + 'maps?id=' + id
-        //});
+        return $http({
+            method: 'GET',
+            url: baseUrl + 'map?id=' + id
+        });
     }
 
-    function addMap(addressId, data) {
+    function addMap(addressId, data, myPosition) {
         return $http({
-            method: 'POST',
+            method: 'PATCH',
             url: baseUrl + 'addresses/' + addressId,
-            data: {data:data }
+            data: _.extend(data, myPosition.coords)
         });
     }
 
