@@ -18,9 +18,9 @@ app.factory('AddressesService', ['$http', function ($http) {
 						})
 					}
 				})
-				.sortBy(function(adr){
+				.orderBy(function(adr){
 					return adr.nbrMaps.length;
-				})
+				}, 'desc')
 				.value();
 	}
 }]);
