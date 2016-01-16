@@ -15,15 +15,18 @@ app.factory('MapRestService', ['$http', function ($http) {
         return [
             {
                 "id": 1,
-                "desc": "Plan de la cafét de 42",
-                "address": "32 rue de la poste, 75017 Paris",
+	            "desc": "32 rue de la poste, 75017 Paris",
                 maps: [
                     {
-                        "level": 2,
+	                    "id":11,
+
+	                    "desc": "Plan de la cafét de 42",
+	                    "level": 2,
                         "building": "A",
                         "path": "http://www.precisionfloorplan.com/wp-content/uploads/2008/08/emergency-evac-chart-img.jpg"
                     },
                     {
+	                    "id":12,
                         "level": 3,
                         "building": "A",
                         "path": "http://sydney.edu.au/whs/images/a19%20image%20reduced%20size.jpg"
@@ -36,6 +39,7 @@ app.factory('MapRestService', ['$http', function ($http) {
                 "level": 1,
                 "maps": [
                     {
+	                    "id":21,
                         "address": "32 rue Bessière, 75017 Paris",
                         "building": "B2"
                     }
@@ -73,7 +77,9 @@ app.factory('MapRestService', ['$http', function ($http) {
     function showMap(id) {
         return {
             path: 'http://www.precisionfloorplan.com/wp-content/uploads/2008/08/emergency-evac-chart-img.jpg',
-            date: '12/12/2015 15:00'
+            date: '12/12/2015 15:00',
+	        building: 'A1',
+	        level: '4ème'
         };
         //return $http({
         //    method: 'GET',
