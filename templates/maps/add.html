@@ -1,14 +1,17 @@
 <div class="container-fluid" style="margin-top: 20px">
-    <p>Ajouter un plan d'évacuation</p>
 
     <form action="{{ actionUrl }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" ng-value="lat" name="lat">
         <input type="hidden" ng-value="lon" name="lon">
         <input type="hidden" value="{{ redirectUrl }}" name="redirectUrl">
+        
+        <div class="form-group">
+            <label for="image"><span class="glyphicon glyphicon-camera text-success"></span> Photographiez le plan en cliquant sur le bouton</label>
+            <input type="file" name="image" id="image" capture="camera" accept="image/*" required>
+        </div>
 
         <div class="form-group">
-            <label for="image">Téléchargez votre photo</label>
-            <input type="file" name="image" id="image" capture="camera" accept="image/*" required>
+            <p>Informations supplémentaires : </p>
         </div>
 
         <div class="form-group">
@@ -23,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            <label for="name">Donnez un nom à votre map</label>
+            <label for="name">Nom du lieu</label>
             <input id="name" type="text" class="form-control" ng-model="map.name" name="name" placeholder="Nom">
         </div>
 
@@ -35,4 +38,6 @@
 
     </form>
 </div>
+
+
 
