@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/openevacmap/openevac-front#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "express-urlrewrite": "^1.2.0"
   }
 }

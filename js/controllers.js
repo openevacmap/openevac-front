@@ -42,12 +42,22 @@ app
 
     .controller('AddMapCtrl', ['$scope', 'MapRestService', '$stateParams', '$sce', '$location', function ($scope, MapRestService, $stateParams, $sce, $location) {
 
+		$scope.submitReally = function(){
+			$('#addFormId').submit(function(e){
+				console.log(this);
+			});
+		}
+
+
         $scope.actionUrl = $sce.trustAsResourceUrl(MapRestService.getBaseUrl() + 'addresses/' + $stateParams.id);
         $scope.redirectUrl = $sce.trustAsResourceUrl($location.protocol() + '://' + $location.host() + '/thanks');
 
         if (!myPosition.coords.lat || !myPosition.coords.lon) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                $scope.lat = position.coords.latitude;
+	            myPosition.coords.lat = position.coords.latitude;
+	            myPosition.coords.lon = position.coords.longitude;
+
+	            $scope.lat = position.coords.latitude;
                 $scope.lon = position.coords.longitude;
             });
         }

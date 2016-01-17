@@ -16,7 +16,7 @@
 
 <div class="container-fluid" style="margin-top: 20px">
 
-    <form action="{{ actionUrl }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ actionUrl }}" method="POST" enctype="multipart/form-data" id="addFormId">
         <input type="hidden" ng-value="lat" name="lat">
         <input type="hidden" ng-value="lon" name="lon">
         <input type="hidden" value="{{ redirectUrl }}" name="redirectUrl">
@@ -44,6 +44,7 @@
         <div class="form-group">
             <label for="name">Nom du lieu</label>
             <input id="name" type="text" class="form-control" ng-model="map.name" name="name" placeholder="Nom">
+
         </div>
 
         <i ng-show="myForm.file.$error.required">*required</i><br>
@@ -51,7 +52,7 @@
             {{errorFiles[0].size / 1000000|number:1}}MB: max 4M</i>
 
         <button class="btn btn-primary" type="submit">Envoyer</button>
-
+        <button class="btn btn-primary" ng-click="submitReally()">Fake Envoyer</button>
     </form>
 </div>
 

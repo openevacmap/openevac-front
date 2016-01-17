@@ -30,4 +30,3 @@ app.config(['$stateProvider', '$locationProvider', '$httpProvider', '$sceDelegat
             controller: 'AddMapCtrl'
         });
 }]);
-
