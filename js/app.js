@@ -10,6 +10,10 @@ app.config(['$stateProvider', '$locationProvider', '$httpProvider', '$sceDelegat
         $sceDelegateProvider.resourceUrlWhitelist(['*', 'self']);
 
     $stateProvider
+        .state('thanks', {
+            url: "/thanks",
+            templateUrl: "templates/thanks.html"
+        })
         .state('addresses', {
             url: "/{openedTab}",
             templateUrl: "templates/addresses/list.html",
