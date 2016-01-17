@@ -42,6 +42,30 @@ app
 
     .controller('AddMapCtrl', ['$scope', 'MapRestService', '$stateParams', '$sce', '$location', function ($scope, MapRestService, $stateParams, $sce, $location) {
 
+		$scope.submitReally = function(){
+			$('#addFormId').submit(function(e){
+				$.ajax({
+					type: 'POST',
+					url: $(this).attr('action'),
+					data: $(this).serialize(),
+					dataType: 'json',
+					success: function(json) {
+						if(json.type == 'success') {
+							alert('Merci pour votre contribution');
+							//$('#msg').css("color","green").html(json.message);
+						} else if(json.type == 'warning'){
+							alert('oops! Il y a eu un souci');
+							//$('#msg').css("color","yellow").html(json.message);
+						} else if(json.type == 'error'){
+							alert('Erreur');
+							//$('#msg').css("color","red").html(json.message);
+						}
+					}
+				})
+			});
+		}
+
+
         $scope.actionUrl = $sce.trustAsResourceUrl(MapRestService.getBaseUrl() + 'addresses/' + $stateParams.id);
         $scope.redirectUrl = $sce.trustAsResourceUrl($location.protocol() + '://' + $location.host() + '/thanks');
 
