@@ -42,13 +42,6 @@ app
 
     .controller('AddMapCtrl', ['$scope', 'MapRestService', '$stateParams', '$sce', '$location', function ($scope, MapRestService, $stateParams, $sce, $location) {
 
-		$scope.submitReally = function(){
-			$('#addFormId').submit(function(e){
-				console.log(this);
-			});
-		}
-
-
         $scope.actionUrl = $sce.trustAsResourceUrl(MapRestService.getBaseUrl() + 'addresses/' + $stateParams.id);
         $scope.redirectUrl = $sce.trustAsResourceUrl($location.protocol() + '://' + $location.host() + '/thanks');
 
