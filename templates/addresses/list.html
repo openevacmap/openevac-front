@@ -3,8 +3,9 @@
 <div class="list-group panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default" ng-repeat="address in addresses track by $index" style="margin-top:-1px;">
         <button class="panel-heading" role="tab" id="headingOne-{{ $index }}" role="button" data-toggle="collapse"
-             data-parent="#accordion" aria-expanded="false" aria-controls="collapseOne-{{ $index }}" data-target="#collapseOne-{{ $index }}"
-             style="padding:20px 15px; border:0; width:100%">
+                data-parent="#accordion" aria-expanded="false" aria-controls="collapseOne-{{ $index }}"
+                data-target="#collapseOne-{{ $index }}"
+                style="padding:20px 15px; border:0; width:100%; text-align: left;">
             <div class="row">
                 <div class="col-xs-10">
                     {{ address.label }}
@@ -29,8 +30,12 @@
                         <span ng-if="map.building">Batiment : {{ map.building }}</span>
                     </a>
                 </li>
-                <li class="list-group-item"><a ui-sref="addMap({id:address.id})"><img src="favicon-32x32.png" alt="">
-                    Ajouter un plan d'évacuation</a>
+                <li class="list-group-item"><a ui-sref="addMap({id:address.id})" style="height: 24px; margin-top: 8px; display: block">
+                    <span style="vertical-align: middle">
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                        Ajouter un plan d'évacuation
+                    </span>
+                </a>
                 </li>
             </ul>
         </div>
@@ -40,6 +45,6 @@
 <!-- Prevent blue glowing on clicking on buttons -->
 <style>
     .panel-heading:focus {
-        outline:none;
+        outline: none;
     }
 </style>

@@ -5,30 +5,34 @@
         <input type="hidden" ng-value="lat" name="lat">
         <input type="hidden" ng-value="lon" name="lon">
         <input type="hidden" value="{{ redirectUrl }}" name="redirectUrl">
-        <div class="form-group">
-            <div class="form-group">
-                <label for="building">Bâtiment</label>
-                <input id="building" type="text" class="form-control" ng-model="map.building" name="building"
-                       placeholder="Bâtiment">
-            </div>
-            <div class="form-group">
-                <label for="level">Etage</label>
-                <input id="level" type="text" class="form-control" ng-model="map.level" name="level" placeholder="Etage">
-            </div>
-            <div class="form-group">
-                <label for="image" for="level">Téléchargez votre photo</label>
-                <input type="file" name="image" id="image" capture="camera" accept="image/*" required>
-            </div>
-            <i ng-show="myForm.file.$error.required">*required</i><br>
-            <i ng-show="myForm.file.$error.maxSize">File too large
-                {{errorFiles[0].size / 1000000|number:1}}MB: max 4M</i>
 
-            <div class="form-group">
-                <label for="name">Donnez un nom à votre map</label>
-                <input id="name" type="text" class="form-control" ng-model="map.name" name="name" placeholder="Nom">
-            </div>
-            <button class="btn btn-primary" type="submit">Envoyer</button>
+        <div class="form-group">
+            <label for="image">Téléchargez votre photo</label>
+            <input type="file" name="image" id="image" capture="camera" accept="image/*" required>
         </div>
+
+        <div class="form-group">
+            <label for="level">Etage</label>
+            <input id="level" type="text" class="form-control" ng-model="map.level" name="level" placeholder="Etage">
+        </div>
+
+        <div class="form-group">
+            <label for="building">Bâtiment</label>
+            <input id="building" type="text" class="form-control" ng-model="map.building" name="building"
+                   placeholder="Bâtiment">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Donnez un nom à votre map</label>
+            <input id="name" type="text" class="form-control" ng-model="map.name" name="name" placeholder="Nom">
+        </div>
+
+        <i ng-show="myForm.file.$error.required">*required</i><br>
+        <i ng-show="myForm.file.$error.maxSize">File too large
+            {{errorFiles[0].size / 1000000|number:1}}MB: max 4M</i>
+
+        <button class="btn btn-primary" type="submit">Envoyer</button>
+
     </form>
 </div>
 
