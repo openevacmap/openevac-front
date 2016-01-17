@@ -22,10 +22,11 @@
         <div id="collapseOne-{{ $index }}" class="panel-collapse collapse" role="tabpanel"
              aria-labelledby="headingOne-{{ $index }}">
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="map in address.maps track by $index"
+                <li class="list-group-item" ng-repeat="map in address.maps track by $index" ui-sref="map({id:map.id})"
                     ng-if="address.nbrMaps.length">
                     <a href="maps/{{map.id}}">
                         <img src="favicon-32x32.png" alt="">
+                        <span ng-if="map.name">{{ map.name }}</span> <span ng-if="map.name && map.building || map.name && map.level"> - </span>
                         <span ng-if="map.level">Etage : {{ map.level }}</span> <span ng-if="map.level && map.building"> - </span>
                         <span ng-if="map.building">Batiment : {{ map.building }}</span>
                     </a>
