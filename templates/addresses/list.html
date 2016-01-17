@@ -2,10 +2,9 @@
 
 <div class="list-group panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default" ng-repeat="address in addresses track by $index" style="margin-top:-1px;">
-        <div class="panel-heading" role="tab" id="headingOne-{{ $index }}" role="button" data-toggle="collapse"
-             data-parent="#accordion"
-             aria-expanded="false" aria-controls="collapseOne-{{ $index }}" href="#collapseOne-{{ $index }}"
-             style="padding:20px 15px;">
+        <button class="panel-heading" role="tab" id="headingOne-{{ $index }}" role="button" data-toggle="collapse"
+             data-parent="#accordion" aria-expanded="false" aria-controls="collapseOne-{{ $index }}" data-target="#collapseOne-{{ $index }}"
+             style="padding:20px 15px; border:0; width:100%">
             <div class="row">
                 <div class="col-xs-10">
                     {{ address.label }}
@@ -17,7 +16,7 @@
                 </div>
             </div>
             </h4>
-        </div>
+        </button>
 
         <div id="collapseOne-{{ $index }}" class="panel-collapse collapse" role="tabpanel"
              aria-labelledby="headingOne-{{ $index }}">
@@ -37,3 +36,10 @@
         </div>
     </div>
 </div>
+
+<!-- Prevent blue glowing on clicking on buttons -->
+<style>
+    .panel-heading:focus {
+        outline:none;
+    }
+</style>
