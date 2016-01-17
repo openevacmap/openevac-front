@@ -13,14 +13,15 @@ app.factory('AddressesService', ['$http', function ($http) {
 						id : key,
 						maps : val,
 						label : val[0].address_label,
+						dist : (_.maxBy(val, function(map){return map.dist})).dist,
 						nbrMaps : _.filter(val, function(map) {
 							return map.id;
 						})
 					}
 				})
 				.orderBy(function(adr){
-					return adr.nbrMaps.length;
-				}, 'desc')
+					return adr.dist;
+				}, 'asc')
 				.value();
 	}
 }]);
