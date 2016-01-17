@@ -13,7 +13,7 @@ app.factory('AddressesService', ['$http', function ($http) {
 						id : key,
 						maps : val,
 						label : val[0].address_label,
-						dist : (_.maxBy(val, function(map){return map.dist})).dist,
+						dist : (_.minBy(val, function(map){return map.dist})).dist,
 						nbrMaps : _.filter(val, function(map) {
 							return map.id;
 						})
