@@ -55,26 +55,4 @@ app
             $scope.lat = myPosition.coords.lat;
             $scope.lon = myPosition.coords.lon;
         }
-
-        //if(!myPosition.coords.lat || !myPosition.coords.lon){
-        //	navigator.geolocation.getCurrentPosition(function (position) {
-        //
-        //		myPosition.coords.lat = position.coords.latitude;
-        //		myPosition.coords.lon = position.coords.longitude;
-        //
-        //		$scope.addMap = function(map) {
-        //			MapRestService.addMap($stateParams.id, map, myPosition);
-        //		}
-        //
-        //	}, function (error) {
-        //		alert("impossible de vous localiser ");
-        //		$scope.loading = false;
-        //		console.log(error);
-        //	});
-        //}
-        //else{
-        //	$scope.addMap = function(map) {
-        //		MapRestService.addMap($stateParams.id, map, myPosition);
-        //	}
-        //}
     }]);

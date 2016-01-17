@@ -3,22 +3,22 @@
 app.factory('MapRestService', ['$http', function ($http) {
 
 
-     //var baseUrl = "http://api.openevacmap.org/v0/";
-    var baseUrl = "http://10.18.182.204:8000/v0/";
+    var baseUrl = "http://api.openevacmap.org/v0/";
+    //var baseUrl = "http://10.18.182.204:8000/v0/";
 
 
     return {
         getList: getList,
         addMap: addMap,
         showMap: showMap,
-        getBaseUrl : getBaseUrl
+        getBaseUrl: getBaseUrl
     };
 
     function getList(lat, lng) {
         return $http({
-	        'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Origin': '*',
             'method': 'GET',
-            'url': baseUrl + 'maps-info?lat='+ lat + '&lon=' + lng
+            'url': baseUrl + 'maps-info?lat=' + lat + '&lon=' + lng
         });
     }
 
